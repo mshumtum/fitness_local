@@ -1,0 +1,9 @@
+{
+  "language": "English",
+  "onboarding": {
+    "loginTitle": "Log In",
+    "loginSubtitle": "Welcome back! Please log in to continue.",
+    "loginButton": "Log In",
+    "signupButton": "Sign Up"
+  }
+}
