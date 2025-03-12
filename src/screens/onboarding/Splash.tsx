@@ -7,11 +7,12 @@ import {
   StatusBar,
   PixelRatio,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Splash = () => {
+const Splash = ({ navigation }) => {
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
   
   useEffect(() => {
@@ -74,47 +75,56 @@ const Splash = () => {
         end={{x: 0, y: 1}}
         locations={[0, 0.8366]}
       />
-      <Image
-        source={require('../../../assets/icons/splashScreenLogo.png')}
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Login')}
         style={[
-          styles.logoIcon,
+          styles.clickableArea,
           {
-            height: normalize(86),
-            width: normalize(86),
             bottom: logoBottomPosition,
-            left: width * 0.15, 
+            left: width * 0.15,
+            right: width * 0.15,
+            height: normalize(200),
           },
         ]}
-        resizeMode="contain"
-      />
-      <View
-        style={[
-          styles.warriorTextContainer,
-          {
-            height: normalize(46),
-            width: normalize(205),
-            bottom: warriorTextBottomPosition,
-            right: width * 0.15, 
-          },
-        ]}>
-        <Text style={[styles.logoText, {fontSize: normalize(46), lineHeight: normalize(44)}]}>
-          WARRIOR
-        </Text>
-      </View>
-      <View
-        style={[
-          styles.fitnessTextContainer,
-          {
-            height: normalize(46),
-            width: normalize(189),
-            bottom: fitnessTextBottomPosition,
-            right: width * 0.15, 
-          },
-        ]}>
-        <Text style={[styles.logoText, {fontSize: normalize(46), lineHeight: normalize(44)}]}>
-          FITNESS
-        </Text>
-      </View>
+      >
+        <Image
+          source={require('../../../assets/icons/splashScreenLogo.png')}
+          style={[
+            styles.logoIcon,
+            {
+              height: normalize(86),
+              width: normalize(86),
+            },
+          ]}
+          resizeMode="contain"
+        />
+        <View
+          style={[
+            styles.warriorTextContainer,
+            {
+              height: normalize(46),
+              width: normalize(205),
+              bottom: warriorTextBottomPosition,
+            },
+          ]}>
+          <Text style={[styles.logoText, {fontSize: normalize(46), lineHeight: normalize(44)}]}>
+            WARRIOR
+          </Text>
+        </View>
+        <View
+          style={[
+            styles.fitnessTextContainer,
+            {
+              height: normalize(46),
+              width: normalize(189),
+              bottom: fitnessTextBottomPosition,
+            },
+          ]}>
+          <Text style={[styles.logoText, {fontSize: normalize(46), lineHeight: normalize(44)}]}>
+            FITNESS
+          </Text>
+        </View>
+      </TouchableOpacity>
       <View
         style={{
           height: normalize(27),
@@ -152,6 +162,13 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 1,
+  },
+  clickableArea: {
+    position: 'absolute',
+    zIndex: 2,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   warriorTextContainer: {
     position: 'absolute',
