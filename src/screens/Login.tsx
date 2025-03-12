@@ -13,6 +13,7 @@ import {
   Platform,
 } from 'react-native';
 import {Svg, Path} from 'react-native-svg';
+import LoginModal from '../components/LoginModal';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,6 +21,7 @@ const Login = () => {
   const slideAnim1 = useRef(new Animated.Value(0)).current;
   const slideAnim2 = useRef(new Animated.Value(Dimensions.get('window').width)).current;
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     const runAnimation = () => {
@@ -79,6 +81,10 @@ const Login = () => {
       return Math.round(PixelRatio.roundToNearestPixel(newSize));
     }
     return Math.round(PixelRatio.roundToNearestPixel(newSize));
+  };
+
+  const handleLogin = () => {
+    setModalVisible(true);
   };
 
   return (
@@ -184,11 +190,17 @@ const Login = () => {
           </View>
         </View>
         <View style={styles.loginBtnContainer}>
-          <TouchableOpacity style={styles.loginBtn} onPress={() => {}}>
+          <TouchableOpacity 
+            style={styles.loginBtn} 
+            onPress={handleLogin}>
             <Text style={styles.loginBtnText}>Log In</Text>
           </TouchableOpacity>
         </View>
       </View>
+      <LoginModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+      />
       <View style={[styles.otherOptionsContainer, {
         marginTop: height * 0.84,
         marginHorizontal: width * 0.24,
