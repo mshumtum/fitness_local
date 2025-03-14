@@ -14,8 +14,9 @@ import {
 } from 'react-native';
 import {Svg, Path} from 'react-native-svg';
 import LoginModal from '../components/LoginModal';
+import { NavigationProps } from '../types/navigation';
 
-const Login = () => {
+const Login = ({ navigation }: NavigationProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const slideAnim1 = useRef(new Animated.Value(0)).current;
@@ -200,6 +201,10 @@ const Login = () => {
       <LoginModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
+        navigation={navigation}
+        onAgree={() => {
+          console.log(`button pressed`);
+        }}
       />
       <View style={[styles.otherOptionsContainer, {
         marginTop: height * 0.84,
