@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     justifyContent: 'center',
-    marginLeft: 10,
+    marginLeft: 0,
   },
   warriorContainer: {
     flex: 1,

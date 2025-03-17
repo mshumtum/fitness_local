@@ -207,7 +207,7 @@ const Login = ({ navigation }: NavigationProps) => {
         }}
       />
       <View style={[styles.otherOptionsContainer, {
-        marginTop: height * 0.84,
+        marginTop: height * 0.80,
         marginHorizontal: width * 0.24,
       }]}>
         <TouchableOpacity
