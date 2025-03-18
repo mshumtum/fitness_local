@@ -28,6 +28,15 @@ const LoginModal = ({visible, onClose, onAgree, navigation}: LoginModalProps) =>
     setAgreeChecked(!agreeChecked);
   };
 
+  const handleAgree = () => {
+    // Close the modal
+    onClose();
+    // Navigate to the onboarding form
+    navigation.navigate('OnboardingForm');
+    // Call the original onAgree function if needed
+    if (onAgree) onAgree();
+  };
+
   return (
     <Modal
       animationType="slide"
@@ -158,7 +167,7 @@ const LoginModal = ({visible, onClose, onAgree, navigation}: LoginModalProps) =>
                   styles.agreeButton,
                   !agreeChecked && styles.agreeButtonDisabled,
                 ]}
-                onPress={onAgree}
+                onPress={handleAgree}
                 disabled={!agreeChecked}>
                 <Text style={styles.agreeButtonText}>Agree</Text>
               </TouchableOpacity>

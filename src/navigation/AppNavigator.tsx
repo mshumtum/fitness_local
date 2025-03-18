@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Splash, Login,Signup} from '../screens';
 import {navigationRef, RootStackParamList} from './NavigationService';
+import OnboardingForm from '../components/OnboardingForm';
 
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -32,6 +33,11 @@ const AppNavigator = () => {
         <Stack.Screen name="Tab" component={TabNavigator} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
+        <Stack.Screen 
+          name="OnboardingForm" 
+          component={OnboardingForm} 
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
