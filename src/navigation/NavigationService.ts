@@ -8,6 +8,8 @@ export type RootStackParamList = {
   Splash: undefined;
   Tab: undefined;
   Login: undefined;
+  Signup: undefined;
+
 };
 
 export const navigationRef = createNavigationContainerRef<RootStackParamList>();

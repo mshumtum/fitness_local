@@ -15,6 +15,7 @@ import {
 import {Svg, Path} from 'react-native-svg';
 import LoginModal from '../components/LoginModal';
 import { NavigationProps } from '../types/navigation';
+import Signup from './Signup';
 
 const Login = ({ navigation }: NavigationProps) => {
   const [email, setEmail] = useState('');
@@ -263,7 +264,10 @@ const Login = ({ navigation }: NavigationProps) => {
       }]}>
         <View style={styles.signUpContainer}>
           <Text style={styles.signUpText1}>Don't have an account? </Text>
-          <Text style={styles.signUpText2} onPress={() => {}}>
+          <Text
+            style={styles.signUpText2}
+            onPress={() => navigation.navigate('Signup')}
+          >
             Sign Up
           </Text>
         </View>
