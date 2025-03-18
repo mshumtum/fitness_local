@@ -4,9 +4,9 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    StyleSheet,
+    StyleSheet, Image
 } from 'react-native';
-import { Svg, Path, Rect } from 'react-native-svg';
+import { Svg, Path, Rect, } from 'react-native-svg';
 import LottieView from 'lottie-react-native';
 import { navigationRef } from '../navigation/NavigationService';
 
@@ -28,60 +28,56 @@ const Signup = () => {
     return (<>
 
         <TouchableOpacity onPress={() => navigationRef.navigate('Login')} style={styles.backButton}>
-                    <Svg width={34} height={34} viewBox="0 0 34 34" fill="none">
-                      <Rect
-                        x="1"
-                        y="1"
-                        width="32"
-                        height="32"
-                        rx="10"
-                        stroke="#FFFFFF"
-                        strokeOpacity={0.3}
-                        strokeWidth={1.5}
-                      />
-                      <Path
-                        d="M18.6 12.2L14.5071 16.2928C14.1166 16.6834 14.1166 17.3165 14.5071 17.7071L18.6 21.8"
-                        stroke="#FFFFFF"
-                        strokeWidth={1.5}
-                        strokeLinecap="round"
-                      />
-                    </Svg>
-                  </TouchableOpacity>
-        
-                 
-       
+            <Svg width={34} height={34} viewBox="0 0 34 34" fill="none">
+                <Rect
+                    x="1"
+                    y="1"
+                    width="32"
+                    height="32"
+                    rx="10"
+                    stroke="#FFFFFF"
+                    strokeOpacity={0.3}
+                    strokeWidth={1.5}
+                />
+                <Path
+                    d="M18.6 12.2L14.5071 16.2928C14.1166 16.6834 14.1166 17.3165 14.5071 17.7071L18.6 21.8"
+                    stroke="#FFFFFF"
+                    strokeWidth={1.5}
+                    strokeLinecap="round"
+                />
+            </Svg>
+        </TouchableOpacity>
+
+
+
         <View style={styles.container}>
-        <View style={styles.progressHeader}>
-                    <LottieView
-                      source={require('../../assets/images/running.json')}
-                      autoPlay
-                      loop
-                      style={{
+            <View style={styles.progressHeader}>
+                <LottieView
+                    source={require('../../assets/images/running.json')}
+                    autoPlay
+                    loop
+                    style={{
                         width: 54,
                         height: 54,
-                        position: 'absolute', 
-                        top: -45, 
-                        left: 0, 
-                      }}
-                    />
-                    <View style={styles.progressBar}>
-                      <View style={styles.progressIndicator}></View>
-                    </View>
-                  </View>
+                        position: 'absolute',
+                        top: -45,
+                        left: 0,
+                    }}
+                />
+                <View style={styles.progressBar}>
+                    <View style={styles.progressIndicator}></View>
+                </View>
+            </View>
             <Text style={styles.title}>Sign Up For Free</Text>
             <Text style={styles.subtitle}>Quickly make your account in 1 minute</Text>
 
             {/* Email Field */}
             <View style={styles.inputWrapper}>
-                <Svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <Path
-                        d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
-                        stroke="#FFF"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    />
-                </Svg>
+                <Image
+                    source={require('../../assets/images/Emailicon.png')}
+                    style={{ width: 20, height: 20, marginRight: 10 }}
+                    resizeMode='contain'
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="Email Address"
@@ -95,15 +91,11 @@ const Signup = () => {
 
             {/* Password Field */}
             <View style={styles.inputWrapper}>
-                <Svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <Path
-                        d="M12 17C13.1 17 14 16.1 14 15C14 13.9 13.1 13 12 13C10.9 13 10 13.9 10 15C10 16.1 10.9 17 12 17Z"
-                        stroke="#FFF"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    />
-                </Svg>
+                <Image
+                    source={require('../../assets/images/Passwordicon.png')}
+                    style={{ width: 20, height: 20, marginRight: 10 }}
+                    resizeMode='contain'
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="Password"
@@ -116,15 +108,11 @@ const Signup = () => {
 
             {/* Confirm Password Field */}
             <View style={styles.inputWrapper}>
-                <Svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <Path
-                        d="M12 17C13.1 17 14 16.1 14 15C14 13.9 13.1 13 12 13C10.9 13 10 13.9 10 15C10 16.1 10.9 17 12 17Z"
-                        stroke="#FFF"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    />
-                </Svg>  
+                <Image
+                    source={require('../../assets/images/Passwordicon.png')}
+                    style={{ width: 20, height: 20, marginRight: 10 }}
+                    resizeMode='contain'
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="Confirm Password"
@@ -138,25 +126,23 @@ const Signup = () => {
             {/* Error Message */}
             {error ? (
                 <View style={styles.errorBox}>
-                    
+
                     <Text style={styles.errorText}>{"ERROR: Password Don’t Match!"}</Text>
                 </View>
-            ) : null}
+            ) : <Text></Text>}
 
             {/* Terms and Conditions */}
             <Text style={styles.terms}>
                 <Text style={styles.newtitle}>Sign-Up Terms & Conditions </Text>
-                
+
             </Text>
-            <Text>
-                <Text style={styles.subtitle}>
+            <Text style={styles.subtitle}>
                 By signing up, you agree to provide accurate information and keep your account secure.
                 You must use the platform lawfully and refrain from any fraudulent activities.
                 Your data will be processed as outlined in our Privacy Policy.
                 We reserve the right to suspend or terminate accounts that violate these terms.
                 These terms may be updated periodically,and
                 continued use of our services implies acceptance of any changes.
-                </Text>
             </Text>
 
             {/* Sign-Up Button */}
@@ -200,9 +186,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#222',
         paddingHorizontal: 15,
         borderRadius: 10,
-        marginBottom: 15,
+        marginBottom: 35,
         borderWidth: 1,
         borderColor: '#444',
+
     },
     input: {
         flex: 1,
@@ -227,7 +214,7 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 79,
+        marginTop: 50,
     },
     signupBtnText: {
         color: '#FFF',
@@ -239,17 +226,17 @@ const styles = StyleSheet.create({
         top: 68,
         left: 27,
         zIndex: 1,
-      },
+    },
     terms: {
         color: '#FFFFFF',
         fontSize: 12,
         textAlign: 'center',
-        marginTop: 150,
+        marginTop: 100,
         lineHeight: 18,
     },
 
     progressHeader: {
-        position: 'absolute',   
+        position: 'absolute',
         top: 98,
         left: 98,
         right: 98,
@@ -258,31 +245,31 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         // paddingHorizontal: 40
-      },
-      progressBar: {
+    },
+    progressBar: {
         flex: 1,
         height: 2,
         backgroundColor: 'rgba(255, 255, 255, 0.2)',
         marginLeft: 8,
-      },
-      progressIndicator: {
+    },
+    progressIndicator: {
         width: '20%',
         height: '100%',
         backgroundColor: '#F97316',
-      },
-      newtitle:
-    {
-    fontFamily: 'SF Pro',
-    fontSize: 14,
-    fontStyle: 'normal',
-    fontWeight: '500', // Closest valid value (React Native supports specific weights)
-    lineHeight: undefined, // "normal" is the default in React Native
-    letterSpacing: -0.028,
-    textAlign: 'left',
-    marginTop: 62,
     },
-    
-      
+    newtitle:
+    {
+        fontFamily: 'SF Pro',
+        fontSize: 14,
+        fontStyle: 'normal',
+        fontWeight: '500', // Closest valid value (React Native supports specific weights)
+        lineHeight: undefined, // "normal" is the default in React Native
+        letterSpacing: -0.028,
+        textAlign: 'left',
+        marginTop: 62,
+    },
+
+
 
 
 });
