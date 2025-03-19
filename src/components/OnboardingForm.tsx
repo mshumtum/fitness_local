@@ -30,8 +30,8 @@ const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
     if (onComplete) {
       onComplete({ firstName, lastName, sex });
     }
-    // Navigate to the next screen or perform other actions
-    // navigation.navigate('NextScreen');
+    // Navigate to Dashboard screen
+    navigation.navigate('Dashboard');
   };
 
   return (
@@ -167,9 +167,10 @@ const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
 
             <Text style={styles.infoText}>it's important to share?</Text>
 
-            <TouchableOpacity
-              style={styles.createProfileButton}
-              onPress={handleCreateProfile}>
+            <TouchableOpacity 
+              style={styles.createProfileButton} 
+              onPress={handleCreateProfile}
+            >
               <Text style={styles.createProfileButtonText}>Create Profile</Text>
             </TouchableOpacity>
           </View>
@@ -308,7 +309,7 @@ const styles = StyleSheet.create({
     height: 24,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgb(255, 255, 255)',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -332,17 +333,15 @@ const styles = StyleSheet.create({
   },
   createProfileButton: {
     backgroundColor: '#F97316',
-    padding: 18,
-    borderRadius: 12,
+    paddingVertical: 15,
+    borderRadius: 10,
+    marginTop: 30,
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 'auto',
   },
   createProfileButtonText: {
-    color: '#FFF',
+    color: 'white',
     fontSize: 16,
-    fontFamily: 'SF Pro',
-    fontWeight: '500',
+    fontWeight: 'bold',
   },
 });
 
