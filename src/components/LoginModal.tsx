@@ -13,6 +13,7 @@ import Svg, {Rect, Path} from 'react-native-svg';
 import {BlurView} from '@react-native-community/blur';
 import LinearGradient from 'react-native-linear-gradient';
 import LottieView from 'lottie-react-native';
+import images from '../assets/images';
 
 interface LoginModalProps {
   visible: boolean;
@@ -21,7 +22,12 @@ interface LoginModalProps {
   navigation: any;
 }
 
-const LoginModal = ({visible, onClose, onAgree, navigation}: LoginModalProps) => {
+const LoginModal = ({
+  visible,
+  onClose,
+  onAgree,
+  navigation,
+}: LoginModalProps) => {
   const [agreeChecked, setAgreeChecked] = useState(false);
 
   const toggleAgree = () => {
@@ -46,8 +52,7 @@ const LoginModal = ({visible, onClose, onAgree, navigation}: LoginModalProps) =>
       <View style={styles.modalContainer}>
         <LinearGradient
           colors={['rgba(43, 18, 0, 0.54)', 'rgba(11, 11, 11, 0.54)']}
-          style={styles.gradientBackground}
-        >
+          style={styles.gradientBackground}>
           <TouchableOpacity onPress={onClose} style={styles.backButton}>
             <Svg width={34} height={34} viewBox="0 0 34 34" fill="none">
               <Rect
@@ -71,15 +76,15 @@ const LoginModal = ({visible, onClose, onAgree, navigation}: LoginModalProps) =>
 
           <View style={styles.progressHeader}>
             <LottieView
-              source={require('../../assets/images/running.json')}
+              source={images.runningLottie}
               autoPlay
               loop
               style={{
                 width: 54,
                 height: 54,
-                position: 'absolute', 
-                top: -45, 
-                left: 0, 
+                position: 'absolute',
+                top: -45,
+                left: 0,
               }}
             />
             <View style={styles.progressBar}>
@@ -105,8 +110,8 @@ const LoginModal = ({visible, onClose, onAgree, navigation}: LoginModalProps) =>
               <View style={styles.termSection}>
                 <Text style={styles.termHeading}>• Consistency</Text>
                 <Text style={styles.termText}>
-                  Dry firing helps to develop muscle memory and consistency, which
-                  are important for shooting.
+                  Dry firing helps to develop muscle memory and consistency,
+                  which are important for shooting.
                 </Text>
               </View>
 
@@ -122,8 +127,8 @@ const LoginModal = ({visible, onClose, onAgree, navigation}: LoginModalProps) =>
                 <Text style={styles.termHeading}>• CO2-powered barrels</Text>
                 <Text style={styles.termText}>
                   Some dry fire training tools, like the CoolFire Trainer, are
-                  CO2-powered barrels that cycle the slide, reset the trigger, and
-                  provide some recoil.
+                  CO2-powered barrels that cycle the slide, reset the trigger,
+                  and provide some recoil.
                 </Text>
               </View>
 

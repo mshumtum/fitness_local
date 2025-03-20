@@ -2,10 +2,10 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Splash, Login,Signup} from '../screens';
+import {Splash, Login, Signup} from '../screens';
 import {navigationRef, RootStackParamList} from './NavigationService';
 import OnboardingForm from '../components/OnboardingForm';
-import Dashboard from '../screens/Dashboard';
+import Dashboard from '../screens/app/dashboard/Dashboard';
 
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -26,7 +26,7 @@ const AppNavigator = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
-        initialRouteName="Splash"
+        initialRouteName="Dashboard"
         screenOptions={{
           headerShown: false,
         }}>

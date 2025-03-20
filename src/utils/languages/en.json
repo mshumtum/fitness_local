@@ -1,6 +1,7 @@
 {
   "language": "English",
   "onboarding": {
+    "welcome": "Welcome to Warrior Fitness",
     "loginTitle": "Log In",
     "loginSubtitle": "Welcome back! Please log in to continue.",
     "loginButton": "Log In",
