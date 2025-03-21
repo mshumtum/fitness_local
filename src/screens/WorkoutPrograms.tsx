@@ -57,6 +57,36 @@ const WorkoutPrograms = ({ navigation }: { navigation: NavigationProp<any> }) =>
         totalDays: '0/30',
       },
     },
+    {
+      title: 'CrossFit',
+      features: [
+        'Strength & Power',
+        'Metabolic Conditioning',
+        'Cardio & Endurance',
+        'Mobility & Active Recovery',
+        'Rest Days (for recovery)',
+      ],
+      image: require('../assets/images/crossFit.png'),
+      progress: {
+        exercises: '0/20',
+        totalDays: '0/30',
+      },
+    },
+    {
+      title: 'Powerlifting',
+      features: [
+        'Squat',
+        'Bench press',
+        'Deadlift (SBD)',
+        'Mobility & Active Recovery',
+        'Rest Days (for recovery)',
+      ],
+      image: require('../assets/images/powerlifting.png'),
+      progress: {
+        exercises: '0/20',
+        totalDays: '0/30',
+      },
+    },
   ];
   return (
     <View style={styles.container}>
