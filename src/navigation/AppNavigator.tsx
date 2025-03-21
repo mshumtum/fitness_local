@@ -6,6 +6,7 @@ import {Splash, Login,Signup} from '../screens';
 import {navigationRef, RootStackParamList} from './NavigationService';
 import OnboardingForm from '../components/OnboardingForm';
 import Dashboard from '../screens/Dashboard';
+import WorkoutPrograms from '../screens/WorkoutPrograms';
 
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -36,6 +37,13 @@ const AppNavigator = () => {
         <Stack.Screen name="OnboardingForm" component={OnboardingForm} />
         <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="Tab" component={TabNavigator} />
+        <Stack.Screen 
+          name="WorkoutPrograms" 
+          component={WorkoutPrograms}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
