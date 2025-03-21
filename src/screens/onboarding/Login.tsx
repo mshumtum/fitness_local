@@ -13,15 +13,17 @@ import {
   Platform,
 } from 'react-native';
 import {Svg, Path} from 'react-native-svg';
-import LoginModal from '../components/LoginModal';
-import { NavigationProps } from '../types/navigation';
-import Signup from './Signup';
+import {NavigationProps} from '../../types/navigation';
+import LoginModal from '../../components/LoginModal';
+import images from '../../assets/images';
 
-const Login = ({ navigation }: NavigationProps) => {
+const Login = ({navigation}: NavigationProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const slideAnim1 = useRef(new Animated.Value(0)).current;
-  const slideAnim2 = useRef(new Animated.Value(Dimensions.get('window').width)).current;
+  const slideAnim2 = useRef(
+    new Animated.Value(Dimensions.get('window').width),
+  ).current;
   const [dimensions, setDimensions] = useState(Dimensions.get('window'));
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -91,9 +93,9 @@ const Login = ({ navigation }: NavigationProps) => {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.imageContainer, { height: height * 0.58 }]}>
+      <View style={[styles.imageContainer, {height: height * 0.58}]}>
         <Animated.Image
-          source={require('../../assets/images/asthetic_women.png')}
+          source={images.astheticWomen}
           style={[
             styles.backgroundImage,
             {transform: [{translateX: slideAnim1}]},
@@ -102,7 +104,7 @@ const Login = ({ navigation }: NavigationProps) => {
         />
 
         <Animated.Image
-          source={require('../../assets/images/envato-labs.png')}
+          // source={images.envatoLabs}
           style={[
             styles.backgroundImage,
             {transform: [{translateX: slideAnim2}]},
@@ -110,11 +112,15 @@ const Login = ({ navigation }: NavigationProps) => {
           resizeMode="contain"
         />
       </View>
-      <View style={[styles.formContainer, {
-        width: width * 0.87,
-        marginTop: height * 0.54,
-        marginHorizontal: width * 0.065,
-      }]}>
+      <View
+        style={[
+          styles.formContainer,
+          {
+            width: width * 0.87,
+            marginTop: height * 0.54,
+            marginHorizontal: width * 0.065,
+          },
+        ]}>
         <View style={styles.inputWrapper}>
           <View style={styles.iconContainer}>
             <Svg width={22} height={17} viewBox="0 0 22 17" fill="none">
@@ -192,9 +198,7 @@ const Login = ({ navigation }: NavigationProps) => {
           </View>
         </View>
         <View style={styles.loginBtnContainer}>
-          <TouchableOpacity 
-            style={styles.loginBtn} 
-            onPress={handleLogin}>
+          <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
             <Text style={styles.loginBtnText}>Log In</Text>
           </TouchableOpacity>
         </View>
@@ -207,10 +211,14 @@ const Login = ({ navigation }: NavigationProps) => {
           console.log(`button pressed`);
         }}
       />
-      <View style={[styles.otherOptionsContainer, {
-        marginTop: height * 0.80,
-        marginHorizontal: width * 0.24,
-      }]}>
+      <View
+        style={[
+          styles.otherOptionsContainer,
+          {
+            marginTop: height * 0.8,
+            marginHorizontal: width * 0.24,
+          },
+        ]}>
         <TouchableOpacity
           activeOpacity={1}
           onPress={() => {
@@ -258,16 +266,19 @@ const Login = ({ navigation }: NavigationProps) => {
           </View>
         </TouchableOpacity>
       </View>
-      <View style={[styles.signUpForgotContainer, {
-        marginTop: height * 0.032,
-        marginHorizontal: width * 0.22,
-      }]}>
+      <View
+        style={[
+          styles.signUpForgotContainer,
+          {
+            marginTop: height * 0.032,
+            marginHorizontal: width * 0.22,
+          },
+        ]}>
         <View style={styles.signUpContainer}>
           <Text style={styles.signUpText1}>Don't have an account? </Text>
           <Text
             style={styles.signUpText2}
-            onPress={() => navigation.navigate('Signup')}
-          >
+            onPress={() => navigation.navigate('Signup')}>
             Sign Up
           </Text>
         </View>
@@ -314,7 +325,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     width: '6%',
-    aspectRatio: 22/17,
+    aspectRatio: 22 / 17,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -328,7 +339,7 @@ const styles = StyleSheet.create({
   },
   showPasswordIcon: {
     width: '6%',
-    aspectRatio: 23/17,
+    aspectRatio: 23 / 17,
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: '3%',

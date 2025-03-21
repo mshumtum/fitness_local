@@ -10,10 +10,11 @@ import {
   StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Svg, { Circle, Path } from 'react-native-svg';
+import Svg, {Circle, Path} from 'react-native-svg';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import images from '../../../assets/images';
 
-const Dashboard = ({ navigation }: { navigation: any }) => {
+const Dashboard = ({navigation}: {navigation: any}) => {
   // Sample data - in a real app, this would come from your state management or API
   const userData = {
     name: 'Warrior',
@@ -27,11 +28,11 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
 
   // Days for the calendar strip
   const days = [
-    { date: 'Feb 17', day: '1' },
-    { date: 'Feb 18', day: '2' },
-    { date: 'Feb 19', day: '3' },
-    { date: 'Feb 20', day: '4' },
-    { date: 'Feb 21', day: '5' },
+    {date: 'Feb 17', day: '1'},
+    {date: 'Feb 18', day: '2'},
+    {date: 'Feb 19', day: '3'},
+    {date: 'Feb 20', day: '4'},
+    {date: 'Feb 21', day: '5'},
   ];
 
   return (
@@ -46,12 +47,11 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
             <View style={styles.profileSection}>
               <View style={styles.avatar}>
                 <Image
-                  source={require('../../assets/images/image.png')}
+                  source={images.image}
                   style={{
                     width: 50,
                     height: 50,
                     marginRight: 10,
-
                   }}
                   resizeMode="contain"
                 />
@@ -63,14 +63,23 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
             </View>
             <View style={styles.headerIcons}>
               <TouchableOpacity style={styles.iconButton}>
-                {<Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
-                  <Circle cx={12} cy={12} r={10} stroke="white" strokeWidth={2} />
-                  <Path d="M15 9L9 15M9 9L15 15" stroke="white" strokeWidth={2} strokeLinecap="round" />
-                </Svg> }
-              
-
-
-
+                {
+                  <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
+                    <Circle
+                      cx={12}
+                      cy={12}
+                      r={10}
+                      stroke="white"
+                      strokeWidth={2}
+                    />
+                    <Path
+                      d="M15 9L9 15M9 9L15 15"
+                      stroke="white"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                    />
+                  </Svg>
+                }
               </TouchableOpacity>
               <TouchableOpacity style={styles.iconButton}>
                 <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
@@ -99,15 +108,16 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
             {days.map((item, index) => (
               <View
                 key={index}
-                style={[
-                  styles.dayItem,
-                  index === 0 && styles.activeDayItem
-                ]}
-              >
-                <Text style={[styles.dateText, index === 0 && styles.activeDateText]}>
+                style={[styles.dayItem, index === 0 && styles.activeDayItem]}>
+                <Text
+                  style={[
+                    styles.dateText,
+                    index === 0 && styles.activeDateText,
+                  ]}>
                   {item.date}
                 </Text>
-                <Text style={[styles.dayText, index === 0 && styles.activeDayText]}>
+                <Text
+                  style={[styles.dayText, index === 0 && styles.activeDayText]}>
                   Day - {item.day}
                 </Text>
               </View>
@@ -118,10 +128,14 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
           <View style={styles.workoutCard}>
             <View style={styles.workoutTextContainer}>
               <Text style={styles.workoutTitle}>Workout Progress !</Text>
-              <Text style={styles.exercisesText}>{userData.exercisesLeft} Exercise left</Text>
+              <Text style={styles.exercisesText}>
+                {userData.exercisesLeft} Exercise left
+              </Text>
             </View>
             <View style={styles.progressCircle}>
-              <Text style={styles.progressText}>{userData.workoutProgress}%</Text>
+              <Text style={styles.progressText}>
+                {userData.workoutProgress}%
+              </Text>
             </View>
           </View>
 
@@ -131,7 +145,9 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
             <View style={styles.caloriesCard}>
               <Text style={styles.metricTitle}>Calories</Text>
               <View style={styles.caloriesCircle}>
-                <Text style={styles.caloriesAmount}>{userData.dailyCalories}</Text>
+                <Text style={styles.caloriesAmount}>
+                  {userData.dailyCalories}
+                </Text>
                 <Text style={styles.caloriesUnit}>/kCal</Text>
               </View>
             </View>
@@ -152,9 +168,16 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
               {/* Sleep Card */}
               <View style={styles.sleepCard}>
                 <Text style={styles.sleepTitle}>Sleep</Text>
-                <Text style={styles.sleepHours}>{userData.sleepHours} Hours</Text>
+                <Text style={styles.sleepHours}>
+                  {userData.sleepHours} Hours
+                </Text>
                 <View style={styles.sleepProgressContainer}>
-                  <View style={[styles.sleepProgress, { width: `${userData.sleepQuality}%` }]} />
+                  <View
+                    style={[
+                      styles.sleepProgress,
+                      {width: `${userData.sleepQuality}%`},
+                    ]}
+                  />
                 </View>
               </View>
             </View>
@@ -162,7 +185,7 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
         </ScrollView>
 
         {/* Bottom Navigation */}
-        <View style={styles.bottomNav}>
+        {/* <View style={styles.bottomNav}>
           <TouchableOpacity style={styles.navItem}>
             <Icon name="home" size={24} color="white" style={styles.navIcon} />
             <Text style={styles.navText}>Home</Text>
@@ -183,7 +206,7 @@ const Dashboard = ({ navigation }: { navigation: any }) => {
             <Icon name="account-group" size={24} color="white" style={styles.navIcon} />
             <Text style={styles.navText}>Friends</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </SafeAreaView>
     </LinearGradient>
   );
@@ -440,4 +463,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dashboard; 
+export default Dashboard;

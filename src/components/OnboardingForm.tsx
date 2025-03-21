@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -8,9 +8,10 @@ import {
   Pressable,
   ScrollView,
 } from 'react-native';
-import Svg, { Path, Rect } from 'react-native-svg';
+import Svg, {Path, Rect} from 'react-native-svg';
 import LinearGradient from 'react-native-linear-gradient';
 import LottieView from 'lottie-react-native';
+import images from '../assets/images';
 
 interface OnboardingFormProps {
   navigation: any;
@@ -21,14 +22,14 @@ interface OnboardingFormProps {
   }) => void;
 }
 
-const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
+const OnboardingForm = ({navigation, onComplete}: OnboardingFormProps) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [sex, setSex] = useState<'male' | 'female' | ''>('');
 
   const handleCreateProfile = () => {
     if (onComplete) {
-      onComplete({ firstName, lastName, sex });
+      onComplete({firstName, lastName, sex});
     }
     // Navigate to Dashboard screen
     navigation.navigate('Dashboard');
@@ -38,12 +39,10 @@ const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
     <View style={styles.container}>
       <LinearGradient
         colors={['#2B1200', '#0B0B0B']}
-        style={styles.gradientBackground}
-      >
-        <TouchableOpacity 
-          onPress={() => navigation.goBack()} 
-          style={styles.backButton}
-        >
+        style={styles.gradientBackground}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}>
           <Svg width={34} height={34} viewBox="0 0 34 34" fill="none">
             <Rect
               x="1"
@@ -63,14 +62,14 @@ const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
             />
           </Svg>
         </TouchableOpacity>
-        
+
         <TouchableOpacity style={styles.skipButton}>
           <Text style={styles.skipText}>Skip</Text>
         </TouchableOpacity>
 
         <View style={styles.progressHeader}>
           <LottieView
-            source={require('../../assets/images/running.json')}
+            source={images.runningLottie}
             autoPlay
             loop
             style={styles.runningAnimation}
@@ -116,12 +115,17 @@ const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
                   ]}
                   onPress={() => setSex('male')}>
                   <View style={styles.checkboxContainer}>
-                    <View style={[
-                      styles.checkbox,
-                      sex === 'male' && styles.checkboxSelected,
-                    ]}>
+                    <View
+                      style={[
+                        styles.checkbox,
+                        sex === 'male' && styles.checkboxSelected,
+                      ]}>
                       {sex === 'male' && (
-                        <Svg width={14} height={14} viewBox="0 0 14 14" fill="none">
+                        <Svg
+                          width={14}
+                          height={14}
+                          viewBox="0 0 14 14"
+                          fill="none">
                           <Path
                             d="M3 7L6 10L11 4"
                             stroke="#FFFFFF"
@@ -135,7 +139,7 @@ const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
                     <Text style={styles.genderText}>Male</Text>
                   </View>
                 </Pressable>
-                
+
                 <Pressable
                   style={[
                     styles.genderOption,
@@ -143,12 +147,17 @@ const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
                   ]}
                   onPress={() => setSex('female')}>
                   <View style={styles.checkboxContainer}>
-                    <View style={[
-                      styles.checkbox,
-                      sex === 'female' && styles.checkboxSelected,
-                    ]}>
+                    <View
+                      style={[
+                        styles.checkbox,
+                        sex === 'female' && styles.checkboxSelected,
+                      ]}>
                       {sex === 'female' && (
-                        <Svg width={14} height={14} viewBox="0 0 14 14" fill="none">
+                        <Svg
+                          width={14}
+                          height={14}
+                          viewBox="0 0 14 14"
+                          fill="none">
                           <Path
                             d="M3 7L6 10L11 4"
                             stroke="#FFFFFF"
@@ -167,10 +176,9 @@ const OnboardingForm = ({ navigation, onComplete }: OnboardingFormProps) => {
 
             <Text style={styles.infoText}>it's important to share?</Text>
 
-            <TouchableOpacity 
-              style={styles.createProfileButton} 
-              onPress={handleCreateProfile}
-            >
+            <TouchableOpacity
+              style={styles.createProfileButton}
+              onPress={handleCreateProfile}>
               <Text style={styles.createProfileButtonText}>Create Profile</Text>
             </TouchableOpacity>
           </View>
@@ -345,4 +353,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OnboardingForm; 
+export default OnboardingForm;
