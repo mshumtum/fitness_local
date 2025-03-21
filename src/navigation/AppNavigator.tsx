@@ -60,7 +60,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="ExcerciseTab"
-        component={Splash}
+        component={WorkoutPrograms}
         options={{
           title: 'Exercise',
           headerShown: false,
