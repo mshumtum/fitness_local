@@ -12,6 +12,13 @@ const images = {
   Solidwarning: require("../../assets/images/Solidwarning (1).png"),
   splashScreenPng: require("../../assets/images/splashScreenPng.png"),
   Union: require("../../assets/images/Union.png"),
+
+  //Tabs
+  inactiveHome: require("../../assets/images/inactive_home.png"),
+  inactiveFry: require("../../assets/images/inactive_fry.png"),
+  inactiveExcer: require("../../assets/images/inactive_excer.png"),
+  inactiveFriends: require("../../assets/images/inactive_friends.png"),
+  inactiveRoutine: require("../../assets/images/inactive_routine.png"),
 };
 
 export default images;

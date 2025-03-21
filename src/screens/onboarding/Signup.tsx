@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import {Svg, Path, Rect} from 'react-native-svg';
 import LottieView from 'lottie-react-native';
-import {navigationRef} from '../navigation/NavigationService';
-import images from '../assets/images';
+import {navigationRef} from '../../navigation/NavigationService';
+import images from '../../assets/images';
 
 const Signup = () => {
   const [email, setEmail] = useState('');

@@ -13,10 +13,9 @@ import {
   Platform,
 } from 'react-native';
 import {Svg, Path} from 'react-native-svg';
-import LoginModal from '../components/LoginModal';
-import {NavigationProps} from '../types/navigation';
-import Signup from './Signup';
-import images from '../assets/images';
+import {NavigationProps} from '../../types/navigation';
+import LoginModal from '../../components/LoginModal';
+import images from '../../assets/images';
 
 const Login = ({navigation}: NavigationProps) => {
   const [email, setEmail] = useState('');
