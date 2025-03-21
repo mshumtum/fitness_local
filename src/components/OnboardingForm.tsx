@@ -32,7 +32,7 @@ const OnboardingForm = ({navigation, onComplete}: OnboardingFormProps) => {
       onComplete({firstName, lastName, sex});
     }
     // Navigate to Dashboard screen
-    navigation.navigate('Dashboard');
+    navigation.navigate('Tab');
   };
 
   return (

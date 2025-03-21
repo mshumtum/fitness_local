@@ -122,7 +122,7 @@ const AppNavigator = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
-        initialRouteName="Tab"
+        // initialRouteName="Tab"
         screenOptions={{
           headerShown: false,
         }}>

@@ -11,6 +11,7 @@ export type RootStackParamList = {
   Tab: undefined;
   OnboardingForm: undefined;
   Dashboard: undefined;
+  WorkoutPrograms: undefined;
 };
 
 export const navigationRef = createNavigationContainerRef<RootStackParamList>();
