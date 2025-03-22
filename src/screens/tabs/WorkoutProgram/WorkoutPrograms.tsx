@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
-import { Image } from 'react-native';
+import {Image} from 'react-native';
 
-import { NavigationProp } from '@react-navigation/native';
-const WorkoutPrograms = ({ navigation }: { navigation: NavigationProp<any> }) => {
+import {NavigationProp} from '@react-navigation/native';
+import images from '../../../assets/images';
+const WorkoutPrograms = ({navigation}: {navigation: NavigationProp<any>}) => {
   const programs = [
     {
       title: 'Bodybuilding',
@@ -21,7 +22,7 @@ const WorkoutPrograms = ({ navigation }: { navigation: NavigationProp<any> }) =>
         'Mobility & Active Recovery',
         'Rest Days (for recovery)',
       ],
-       image: require('../assets/images/bodybuilding.png'),
+      image: images.bodybuilding,
       progress: {
         exercises: '0/20',
         totalDays: '0/30',
@@ -36,7 +37,7 @@ const WorkoutPrograms = ({ navigation }: { navigation: NavigationProp<any> }) =>
         'Mobility & Active Recovery',
         'Rest Days (for recovery)',
       ],
-      image: require('../assets/images/powerlifting.png'),
+      image: images.powerlifting,
       progress: {
         exercises: '0/20',
         totalDays: '0/30',
@@ -51,7 +52,7 @@ const WorkoutPrograms = ({ navigation }: { navigation: NavigationProp<any> }) =>
         'Mobility & Active Recovery',
         'Rest Days (for recovery)',
       ],
-      image: require('../assets/images/crossFit.png'),
+      image: images.crossFit,
       progress: {
         exercises: '0/20',
         totalDays: '0/30',
@@ -66,7 +67,7 @@ const WorkoutPrograms = ({ navigation }: { navigation: NavigationProp<any> }) =>
         'Mobility & Active Recovery',
         'Rest Days (for recovery)',
       ],
-      image: require('../assets/images/crossFit.png'),
+      image: images.crossFit,
       progress: {
         exercises: '0/20',
         totalDays: '0/30',
@@ -81,7 +82,7 @@ const WorkoutPrograms = ({ navigation }: { navigation: NavigationProp<any> }) =>
         'Mobility & Active Recovery',
         'Rest Days (for recovery)',
       ],
-      image: require('../assets/images/powerlifting.png'),
+      image: images.powerlifting,
       progress: {
         exercises: '0/20',
         totalDays: '0/30',
@@ -95,7 +96,7 @@ const WorkoutPrograms = ({ navigation }: { navigation: NavigationProp<any> }) =>
           <TouchableOpacity
             key={program.title}
             style={styles.programCard}
-            onPress={() => navigation.navigate('ProgramDetails', { program })}>
+            onPress={() => navigation.navigate('ProgramDetails', {program})}>
             <View style={styles.cardContent}>
               <Image source={program?.image} style={styles.programImage} />
               <View style={styles.programInfo}>
@@ -145,13 +146,13 @@ const styles = StyleSheet.create({
   },
   cardContent: {
     padding: 16,
-    display: "flex",
-    flexDirection: "row",
+    display: 'flex',
+    flexDirection: 'row',
   },
   programImage: {
     width: '40%',
     height: 200,
-    objectFit:"contain"
+    objectFit: 'contain',
     // borderRadius: 12,
     // marginBottom: 16,
   },
@@ -194,4 +195,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WorkoutPrograms; 
+export default WorkoutPrograms;

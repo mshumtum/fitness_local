@@ -12,6 +12,10 @@ const images = {
   Solidwarning: require("../../assets/images/Solidwarning (1).png"),
   splashScreenPng: require("../../assets/images/splashScreenPng.png"),
   Union: require("../../assets/images/Union.png"),
+  powerlifting: require("../../assets/images/powerlifting.png"),
+  bodybuilding: require("../../assets/images/bodybuilding.png"),
+  crossFit: require("../../assets/images/crossFit.png"),
+
 
   //Tabs
   inactiveHome: require("../../assets/images/inactive_home.png"),
